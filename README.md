@@ -38,7 +38,7 @@ Submit.Text = "Submit"
 Submit.TextColor3 = Color3.fromRGB(0, 255, 255)
 Submit.TextSize = 14.000
 Submit.MouseButton1Down:Connect(function()
-	if Pass.Text == "Key" then
+	if Pass.Text == "dem" then
 		Login.Visible = false
 		loading.Visible = true
 		text.Visible = true
