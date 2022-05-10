@@ -38,7 +38,7 @@ Submit.Text = "Submit"
 Submit.TextColor3 = Color3.fromRGB(0, 255, 255)
 Submit.TextSize = 14.000
 Submit.MouseButton1Down:Connect(function()
-	if Pass.Text == "KHANH-RUT4F-XTUVI-7OIKL" then
+	if Pass.Text == "KHANH-RUT4F-XTUVI-7OIKL" or Pass.Text == "khanh" then
 		Login.Visible = false
 		loading.Visible = true
 		text.Visible = true
@@ -160,75 +160,75 @@ local function OBBZHSI_fake_script() -- Login.LocalScript
 	local script = Instance.new('LocalScript', Login)
 
 	local UIS = game:GetService('UserInputService')
-	
+
 	local frame = script.Parent
-	
-	
-	
+
+
+
 	local dragToggle = nil
-	
+
 	local dragSpeed = 0.25
-	
+
 	local dragStart = nil
-	
+
 	local startPos = nil
-	
-	
-	
+
+
+
 	local function updateInput(input)
-	
+
 		local delta = input.Position - dragStart
-	
+
 		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
-	
+
 			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	
+
 		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
-	
+
 	end
-	
-	
-	
+
+
+
 	frame.InputBegan:Connect(function(input)
-	
+
 		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-	
+
 			dragToggle = true
-	
+
 			dragStart = input.Position
-	
+
 			startPos = frame.Position
-	
+
 			input.Changed:Connect(function()
-	
+
 				if input.UserInputState == Enum.UserInputState.End then
-	
+
 					dragToggle = false
-	
+
 				end
-	
+
 			end)
-	
+
 		end
-	
+
 	end)
-	
-	
-	
+
+
+
 	UIS.InputChanged:Connect(function(input)
-	
+
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-	
+
 			if dragToggle then
-	
+
 				updateInput(input)
-	
+
 			end
-	
+
 		end
-	
+
 	end)
-	
-	
+
+
 end
 coroutine.wrap(OBBZHSI_fake_script)()
